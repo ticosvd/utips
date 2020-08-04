@@ -1,0 +1,4 @@
+### Checking ports
+
+nc -zv IP_address PORTS
+
