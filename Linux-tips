@@ -2,3 +2,9 @@
 
 nc -zv IP_address PORTS
 
+######### Certificates show #########	
+KEYS : 
+openssl rsa -noout -text -check -in nginx.key
+
+CERT: 
+  openssl x509 --noout -text -in nginx.crt 
