@@ -8,3 +8,9 @@ openssl rsa -noout -text -check -in nginx.key
 
 CERT: 
   openssl x509 --noout -text -in nginx.crt 
+
+
+
+########## curl with time ##############
+#
+curl  -v  http://XXXX  -w "\nSize_download : %{speed_download} \n Time: %{time_total} \n Local Port : %{local_port} \n"
