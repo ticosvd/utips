@@ -14,3 +14,11 @@ CERT:
 ########## curl with time ##############
 #
 curl  -v  http://XXXX  -w "\nSize_download : %{speed_download} \n Time: %{time_total} \n Local Port : %{local_port} \n"
+
+
+
+### Ubuntu 20.10 install Pulse ##############
+
+https://community.pulsesecure.net/t5/Pulse-Desktop-Clients/pulseUi-doesn-t-work-in-ubuntu-20-04/td-p/42721
+
+wget http://webdev.web3.technion.ac.il/docs/cis/public/ssl-vpn/ps-pulse-ubuntu-debian.deb
