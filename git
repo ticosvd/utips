@@ -1,0 +1,7 @@
+git add .
+git commit -m "k8s tips added " 
+git push  origin master
+git add .
+git commit -m "Linux tips: added certificates " 
+git push  origin master
+
