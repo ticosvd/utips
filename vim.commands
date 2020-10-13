@@ -22,3 +22,15 @@ Switch eventually from Insert to Normal: Ctrl+o
 Edit the fiel: :edit XXX 
 
 
+===================
+
+set nu
+set nonumber
+
+===========
+
+foreground vim
+
+Ctrl+Z
+fg
+
