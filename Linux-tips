@@ -22,3 +22,36 @@ curl  -v  http://XXXX  -w "\nSize_download : %{speed_download} \n Time: %{time_t
 https://community.pulsesecure.net/t5/Pulse-Desktop-Clients/pulseUi-doesn-t-work-in-ubuntu-20-04/td-p/42721
 
 wget http://webdev.web3.technion.ac.il/docs/cis/public/ssl-vpn/ps-pulse-ubuntu-debian.deb
+
+
+################ GENERATE CERTS and NGINX configuration
+
+GENERATE KEY and certificate for CA:
+
+openssl genrsa -des3 -out ca.key 4096
+
+openssl req -new -x509 -days 365 -key ca.key -out ca.crt
+
+#
+GENERATE USER KEY and Cert Request:
+
+openssl genrsa -des3 -out user.key 4096
+
+openssl req -new -key user.key -out user.csr
+
+#
+SIGNED THE CSR:
+openssl x509 -req -days 365 -in user.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out user.crt
+
+server {
+    listen 443 ssl;
+    server_name example.com;
+
+    ssl_protocols TLSv1.1 TLSv1.2;
+    # letsencrypt certificate
+    ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+
+    # client certificate
+    ssl_client_certificate /etc/nginx/client_certs/ca.crt;
+
