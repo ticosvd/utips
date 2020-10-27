@@ -37,12 +37,17 @@ GENERATE USER KEY and Cert Request:
 
 openssl genrsa -des3 -out user.key 4096
 
+REGENERATE KEY WIHTOUT PASSWORD:
+openssl rsa -in server.key -out server.key
+
+
+
 openssl req -new -key user.key -out user.csr
 
 #
 SIGNED THE CSR:
 openssl x509 -req -days 365 -in user.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out user.crt
-
+#
 server {
     listen 443 ssl;
     server_name example.com;
