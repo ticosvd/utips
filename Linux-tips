@@ -60,3 +60,9 @@ server {
     # client certificate
     ssl_client_certificate /etc/nginx/client_certs/ca.crt;
     ssl_verify_client  on;
+
+
+###################
+
+show arp dump in Linux:
+cat /proc/net/arp
