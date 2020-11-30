@@ -66,3 +66,9 @@ server {
 
 show arp dump in Linux:
 cat /proc/net/arp
+
+
+##############
+
+extract multiple files from tar with directory : 
+for f in *.tgz; do tar zxvf "$f"  --one-top-level; done
