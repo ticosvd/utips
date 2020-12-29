@@ -72,3 +72,17 @@ cat /proc/net/arp
 
 extract multiple files from tar with directory : 
 for f in *.tgz; do tar zxvf "$f"  --one-top-level; done
+
+##########################
+The linux kernel has a feature called AnyIP which allows you to answer for a contiguous block of IPv4 or IPv6 addresses via your linux loopback interface for very little cost in DRAM/CPU.
+
+For instance, assume I want my linux machine to answer for any address in 10.7.0.0/16:
+
+    On the linux system add a local route: ip -4 route add local 10.7.0.0/16 dev lo
+    Ask your network engineers to advertise a route for 10.7.0.0/16 pointing to the eth0 address of the machine you did this with.
+
+##########
+
+
+
+o
