@@ -82,7 +82,8 @@ For instance, assume I want my linux machine to answer for any address in 10.7.0
     Ask your network engineers to advertise a route for 10.7.0.0/16 pointing to the eth0 address of the machine you did this with.
 
 ##########
-
+Copy files with wildcard to ../1 :
+ls -la | grep "1111\|2222\|3333\|4444" | cut -d " " -f10- | xargs cp -t ../1/
 
 
 o
