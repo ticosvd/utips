@@ -5,3 +5,9 @@ git add .
 git commit -m "Linux tips: added certificates " 
 git push  origin master
 
+git remove -v 
+
+git remote orgin htttp:/xxx.x.x.x.xx.x
+
+
+g
