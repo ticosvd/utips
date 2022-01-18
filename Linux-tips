@@ -73,6 +73,8 @@ cat /proc/net/arp
 extract multiple files from tar with directory : 
 for f in *.tgz; do tar zxvf "$f"  --one-top-level; done
 
+ for i in {1..20}; do   touch -a -m -t  202201171005.09 tgs$i.txt ; done
+
 ##########################
 The linux kernel has a feature called AnyIP which allows you to answer for a contiguous block of IPv4 or IPv6 addresses via your linux loopback interface for very little cost in DRAM/CPU.
 
@@ -85,5 +87,20 @@ For instance, assume I want my linux machine to answer for any address in 10.7.0
 Copy files with wildcard to ../1 :
 ls -la | grep "1111\|2222\|3333\|4444" | cut -d " " -f10- | xargs cp -t ../1/
 
+#####################
+Create the file with set timestamp:
+ touch -a -m -t 203801181205.09 tgs.txt
+ 
+ ######################
+ Delete files if timestamps > 1day :
+   
+ find /path/to/directory/ -mindepth 1 -mtime +1 -delete
+ Testing find /path/to/directory/ -mindepth 1 -mtime +1 -print
+ or find /path/to/directory/ -mindepth 1 -mmin +1440 -print
+  find /var/opt/radware/license/logs   -type f -iname "flexnet*"   -mmin +1440   -delete
+ 
+ 
+ 
+ 
 
-o
+
