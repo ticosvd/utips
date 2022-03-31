@@ -99,8 +99,10 @@ Create the file with set timestamp:
  or find /path/to/directory/ -mindepth 1 -mmin +1440 -print
   find /var/opt/radware/license/logs   -type f -iname "flexnet*"   -mmin +1440   -delete
  
- 
- 
- 
+################
+Daemon accounts-daemon makes HIGH CPU Loading:
 
+sudo systemctl stop accounts-daemon.service 
+ 
+########################
 
