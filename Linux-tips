@@ -105,4 +105,18 @@ Daemon accounts-daemon makes HIGH CPU Loading:
 sudo systemctl stop accounts-daemon.service 
  
 ########################
+Changing configuration of proxy in Firefox
 
+cd cd ~/.mozilla/firefox/*Default*
+
+cat prefs.js | grep proxy
+user_pref("network.proxy.socks", "localhost");
+user_pref("network.proxy.socks_port", 10001);
+user_pref("network.proxy.type", 1);
+
+Another options : 
+cd ~/.mozilla/firefox/*Default*; cat  prefs.js
+
+cd ~/.mozilla/firefox/*Default*; sed -i s/.*network.proxy.type.*/'user_pref("network.proxy.type", 1);'/ prefs.js
+
+But it doesn't work currently :(

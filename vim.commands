@@ -34,3 +34,11 @@ foreground vim
 Ctrl+Z
 fg
 
+
+====================
+System clipboard 
+
+"*y "*d - yank text to the system clipboard
+
+"*p - get data from the system  clipboard 
+
