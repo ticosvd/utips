@@ -44,32 +44,32 @@ sed -i "$ a net.ipv6.conf.all.disable_ipv6 = 1\\
 
 * * *
 # IPTABLES 
-iptables -L 
-iptables -A INPUT -i lo -j ACCEPT
-iptables -A INPUT -s 127.0.0.0/8 -j ACCEPT
-iptables -A INPUT -p tcp  -m conntrack --ctstate ESTABLISHED -j ACCEPT
-iptables -A INPUT -p udp  -m conntrack --ctstate ESTABLISHED -j ACCEPT
-iptables -L -v 
-iptables -A INPUT -p tcp  --dport 22 -m conntrack --ctstate NEW -j ACCEPT
-iptables -A INPUT -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
+	iptables -L 
+	iptables -A INPUT -i lo -j ACCEPT
+	iptables -A INPUT -s 127.0.0.0/8 -j ACCEPT
+	iptables -A INPUT -p tcp  -m conntrack --ctstate ESTABLISHED -j ACCEPT
+	iptables -A INPUT -p udp  -m conntrack --ctstate ESTABLISHED -j ACCEPT
+	iptables -L -v 
+	iptables -A INPUT -p tcp  --dport 22 -m conntrack --ctstate NEW -j ACCEPT
+	iptables -A INPUT -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
 
-iptables -t nat -A POSTROUTING -s X.X.X/16  -j MASQUERADE
+	iptables -t nat -A POSTROUTING -s X.X.X/16  -j MASQUERADE
 
-iptables -L -v
+	iptables -L -v
 
-netfilter-persistent save
+	netfilter-persistent save
 
 * * *
 # Enabling and Starting OpenVPN service 
-systemctl enable  openvpn-server@openvpn.service
-systemctl start   openvpn-server@openvpn.service
-systemctl status   openvpn-server@openvpn.service
+	systemctl enable  openvpn-server@openvpn.service
+	systemctl start   openvpn-server@openvpn.service
+	systemctl status   openvpn-server@openvpn.service
 
 * * * 
 #Server output 
-cat /etc/openvpn/openvpn.conf
+	cat /etc/openvpn/openvpn.conf
 
-
+```
 ca /etc/easy-rsa/pki/ca.crt
 cert /etc/easy-rsa/pki/issued/oserver.crt
 key /etc/easy-rsa/pki/private/oserver.key
@@ -85,12 +85,12 @@ server 10.20.12.0 255.255.255.0
 verb 3
 push "redirect-gateway def1"
 
-
+```
 * * * 
 #Client count 
 
-cat ovpn
-
+   cat ovpn
+```
 client
 
 dev tun
@@ -102,4 +102,4 @@ remote  B.B.B.B  443
 </cert>
 <key>
 </key>
-
+```
