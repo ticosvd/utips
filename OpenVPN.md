@@ -27,7 +27,7 @@
      ./easyrsa gen-dh
      ./easyrsa gen-crl 
 
-  ./easyrsa gen-req oserver nopass
+    ./easyrsa gen-req oserver nopass
     ./easyrsa sign-req server  oserver 
     ./easyrsa gen-req client1 nopass
     ./easyrsa sign-req client client1
@@ -36,11 +36,11 @@
 * * * 
 
 # Configuring sysctl 
-sed -i "$ a net.ipv6.conf.all.disable_ipv6 = 1\\
-   net.ipv6.conf.default.disable_ipv6 = 1\\
-     net.ipv6.conf.lo.disable_ipv6 = 1 \\
-   net.ipv4.ip_forward=1\\
-" /etc/sysctl.conf
+	sed -i "$ a net.ipv6.conf.all.disable_ipv6 = 1\\
+	   net.ipv6.conf.default.disable_ipv6 = 1\\
+	     net.ipv6.conf.lo.disable_ipv6 = 1 \\
+	   net.ipv4.ip_forward=1\\
+	" /etc/sysctl.conf
 
 * * *
 # IPTABLES 
@@ -63,7 +63,7 @@ sed -i "$ a net.ipv6.conf.all.disable_ipv6 = 1\\
 # Enabling and Starting OpenVPN service 
 	systemctl enable  openvpn-server@openvpn.service
 	systemctl start   openvpn-server@openvpn.service
-	systemctl status   openvpn-server@openvpn.service
+	systemctl status  openvpn-server@openvpn.service
 
 * * * 
 #Server output 

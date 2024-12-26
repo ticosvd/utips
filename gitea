@@ -1,0 +1,5 @@
+changing base URL :
+
+vi  /data/gitea/conf/app.ini
+
+you should change  ROOT !!!
